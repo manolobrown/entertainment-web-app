@@ -1,0 +1,22 @@
+@use "sass:math";
+
+// Source: https://css-tricks.com/snippets/sass/px-to-em-functions/
+@function rem($pixels, $context: 16) {
+  @return (math.div($pixels, $context)) * 1rem;
+}
+
+@function fontClamp($minSize, $maxSize, $minWidth: 375, $maxWidth: 1440) {
+  // convert to rem
+  $minSize: $minSize / 16;
+  $maxSize: $maxSize / 16;
+  $maxWidth: $maxWidth / 16;
+  $minWidth: $minWidth / 16;
+  // do calculations
+  $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+  $preferredValue: #{$yAxisIntersection * 1rem} + #{$slope * 100vw};
+  // output as rem
+  $minSize: $minSize * 1rem;
+  $maxSize: $maxSize * 1rem;
+  @return clamp($minSize, $preferredValue, $maxSize);
+}

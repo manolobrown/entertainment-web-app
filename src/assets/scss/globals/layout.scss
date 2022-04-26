@@ -1,0 +1,8 @@
+@use "../util" as *;
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: var(--dark-blue);
+}
