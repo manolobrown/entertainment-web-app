@@ -7,9 +7,11 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  line-height: 1.1;
-  font-size: rem(18);
+  line-height: 1.25;
+  font-size: rem(20);
   color: var(--white);
+  letter-spacing: rem(-0.31);
+  margin-block-end: rem(24);
 }
 
 h1,
@@ -17,7 +19,7 @@ h2,
 h3,
 h5,
 h6 {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 a,
@@ -26,12 +28,18 @@ a:active {
   text-decoration: none;
 }
 
-body {
+body,
+::placeholder {
   font-family: var(--font-body);
   font-size: rem(13);
   line-height: 1.4;
   font-weight: 300;
   color: var(--white);
+}
+
+::placeholder {
+  opacity: 0.5;
+  font-size: rem(16);
 }
 
 @include breakpoint(medium) {
@@ -41,10 +49,14 @@ body {
   h4,
   h5,
   h6 {
-    font-size: rem(24);
+    font-size: rem(32);
   }
   body {
     font-size: rem(15);
+  }
+  ::placeholder {
+    opacity: 0.5;
+    font-size: rem(24);
   }
 }
 

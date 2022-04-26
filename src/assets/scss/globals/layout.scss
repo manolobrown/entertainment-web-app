@@ -6,3 +6,8 @@ body {
   scroll-behavior: smooth;
   background-color: var(--dark-blue);
 }
+.search,
+main {
+  padding-left: rem(18);
+  padding-right: rem(18);
+}

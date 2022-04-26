@@ -1,12 +1,13 @@
 <script setup>
-import MovieCard from "@/components/Card.vue";
+import CardSlider from "@/components/CardSlider.vue";
+import CardGrid from "@/components/CardGrid.vue";
 </script>
 
 <template>
   <main>
     <h2>Trending</h2>
-    <MovieCard />
+    <CardSlider />
     <h2>Recommended for you</h2>
-    <MovieCard />
+    <CardGrid />
   </main>
 </template>
