@@ -126,4 +126,13 @@ h2 {
     object-position: bottom;
   }
 }
+
+@include breakpoint(large) {
+  h2 {
+    font-size: rem(24);
+  }
+  .meta {
+    font-size: rem(15);
+  }
+}
 </style>

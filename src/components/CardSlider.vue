@@ -29,4 +29,17 @@ import Card from "@/components/Card.vue";
     column-gap: rem(40);
   }
 }
+@include breakpoint(large) {
+  .card-slider {
+    column-gap: rem(40);
+    margin-right: rem(-36);
+    margin-block-end: rem(40);
+  }
+}
+@include breakpoint(xlarge) {
+  .card-slider .card--overlay {
+    flex: 0 0 rem(470);
+    max-width: rem(470);
+  }
+}
 </style>

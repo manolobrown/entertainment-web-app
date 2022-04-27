@@ -96,4 +96,29 @@ nav {
     max-height: rem(32);
   }
 }
+@include breakpoint(large) {
+  .header-wrap {
+    padding-left: rem(36);
+    padding-right: 0;
+    padding-top: rem(32);
+  }
+  .header,
+  nav {
+    flex-direction: column;
+  }
+  .header {
+    height: 100vh;
+    max-height: rem(960);
+    justify-content: flex-start;
+    row-gap: rem(75);
+    padding: rem(35) rem(32);
+    border-radius: rem(20);
+  }
+  nav {
+    row-gap: rem(40);
+  }
+  .avatar {
+    margin-top: auto;
+  }
+}
 </style>

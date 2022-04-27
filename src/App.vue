@@ -5,10 +5,13 @@ import Search from "@/components/Search.vue";
 </script>
 
 <template>
-  <Header />
-  <Search />
-
-  <RouterView />
+  <div class="wrapper">
+    <Header />
+    <div class="wrapper-main">
+      <Search />
+      <RouterView />
+    </div>
+  </div>
 </template>
 
 <!-- 

@@ -25,4 +25,10 @@ import Card from "@/components/Card.vue";
     gap: rem(30);
   }
 }
+@include breakpoint(xlarge) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(40);
+  }
+}
 </style>

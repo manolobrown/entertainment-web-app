@@ -11,3 +11,17 @@ main {
   padding-left: rem(18);
   padding-right: rem(18);
 }
+
+@include breakpoint(large) {
+  .wrapper {
+    display: flex;
+    &-main {
+      padding-top: rem(57);
+    }
+  }
+  .search,
+  main {
+    padding-left: rem(36);
+    padding-right: rem(36);
+  }
+}
