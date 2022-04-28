@@ -16,7 +16,7 @@ import Card from "@/components/Card.vue";
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: rem(15);
+  gap: rem(16);
   margin-block-end: rem(24);
 }
 @include breakpoint(medium) {

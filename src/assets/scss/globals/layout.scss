@@ -8,8 +8,20 @@ body {
 }
 .search,
 main {
-  padding-left: rem(18);
-  padding-right: rem(18);
+  padding-left: rem(16);
+  padding-right: rem(16);
+}
+
+@include breakpoint(medium) {
+  .search,
+  main,
+  .header-wrap {
+    padding-left: rem(25);
+    padding-right: rem(25);
+  }
+  .header-wrap {
+    padding-top: rem(25);
+  }
 }
 
 @include breakpoint(large) {
@@ -20,8 +32,14 @@ main {
     }
   }
   .search,
-  main {
+  main,
+  .header-wrap {
     padding-left: rem(36);
     padding-right: rem(36);
+  }
+
+  .header-wrap {
+    padding-right: 0;
+    padding-top: rem(36);
   }
 }

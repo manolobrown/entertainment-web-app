@@ -55,13 +55,16 @@ import BookMarkIcon from "./icons/IconNavBookmark.vue";
 @use "@/assets/scss/util" as *;
 .header,
 nav {
-  display: flex;
   align-items: center;
+  &,
+  * {
+    display: flex;
+  }
 }
 .header {
   background-color: var(--semi-dark-blue);
   justify-content: space-between;
-  padding: rem(18) rem(16);
+  padding: rem(16);
   margin-block-end: rem(24);
 }
 nav {
@@ -84,24 +87,15 @@ nav {
   max-height: rem(24);
 }
 @include breakpoint(medium) {
-  .header-wrap {
-    padding-left: rem(18);
-    padding-right: rem(18);
-    padding-top: rem(18);
-  }
   .header {
     border-radius: rem(10);
+    padding: rem(24);
   }
   .avatar img {
     max-height: rem(32);
   }
 }
 @include breakpoint(large) {
-  .header-wrap {
-    padding-left: rem(36);
-    padding-right: 0;
-    padding-top: rem(32);
-  }
   .header,
   nav {
     flex-direction: column;

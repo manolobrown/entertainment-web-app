@@ -29,12 +29,18 @@ a:active {
 }
 
 body,
-::placeholder {
+::placeholder,
+input {
   font-family: var(--font-body);
   font-size: rem(13);
   line-height: 1.4;
   font-weight: 300;
   color: var(--white);
+}
+
+input,
+::placeholder {
+  font-size: rem(16);
 }
 
 ::placeholder {
@@ -54,8 +60,8 @@ body,
   body {
     font-size: rem(15);
   }
-  ::placeholder {
-    opacity: 0.5;
+  ::placeholder,
+  input {
     font-size: rem(24);
   }
 }
