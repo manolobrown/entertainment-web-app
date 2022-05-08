@@ -1,13 +1,21 @@
 <script setup>
+import { ref } from "vue";
 import Card from "@/components/Card.vue";
+defineProps({
+  classModifier: String,
+  movies: Object,
+  movieTrending: Boolean,
+});
 </script>
 
 <template>
   <div class="card-slider">
-    <Card classModifier="card--overlay" />
-    <Card classModifier="card--overlay" />
-    <Card classModifier="card--overlay" />
-    <Card classModifier="card--overlay" />
+    <Card
+      classModifier="card--overlay"
+      v-for="movie in movies"
+      :movie="movie"
+      :movieTrending="true"
+    />
   </div>
 </template>
 

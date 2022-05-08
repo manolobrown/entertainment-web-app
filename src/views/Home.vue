@@ -10,7 +10,7 @@ const movies = ref(data);
 <template>
   <main>
     <h2>Trending</h2>
-    <!-- <CardSlider /> -->
+    <CardSlider :movies="movies" />
     <h2>Recommended for you</h2>
     <CardGrid :movies="movies" />
   </main>
