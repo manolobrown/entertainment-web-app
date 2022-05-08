@@ -30,5 +30,14 @@ button {
 input {
   display: inline-block;
   width: 100%;
+  cursor: pointer;
+  caret-color: var(--red);
+  transition: all 0.3s ease-in-out;
+  &:focus,
+  &:focus-visible,
+  &:hover {
+    outline: 0;
+    border-bottom: 1px solid var(--greyish-blue);
+  }
 }
 </style>

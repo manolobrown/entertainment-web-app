@@ -1,13 +1,16 @@
 <script setup>
+import { ref } from "vue";
 import Card from "@/components/Card.vue";
+
+defineProps({
+  classModifier: String,
+  movies: Object,
+});
 </script>
 
 <template>
   <div class="card-grid">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <Card v-for="movie in movies" :movie="movie" />
   </div>
 </template>
 

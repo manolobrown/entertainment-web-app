@@ -76,7 +76,7 @@ nav {
     cursor: pointer;
     @media (hover: hover) {
       &:hover path {
-        fill: var(--white);
+        fill: var(--red);
       }
     }
   }
