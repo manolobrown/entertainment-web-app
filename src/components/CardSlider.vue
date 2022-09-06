@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Card from "@/components/Card.vue";
 defineProps({
   classModifier: String,
   movies: Object,
-  movieTrending: Boolean,
+  isTrending: Boolean,
 });
 </script>
 
@@ -14,7 +14,7 @@ defineProps({
       classModifier="card--overlay"
       v-for="movie in movies"
       :movie="movie"
-      :movieTrending="true"
+      :isTrending="true"
     />
   </div>
 </template>

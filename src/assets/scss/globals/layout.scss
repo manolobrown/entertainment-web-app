@@ -6,14 +6,17 @@ body {
   scroll-behavior: smooth;
   background-color: var(--dark-blue);
 }
-.search,
+
 main {
   padding-left: rem(16);
   padding-right: rem(16);
 }
 
+.card-grid + h2 {
+  margin-top: rem(24);
+}
+
 @include breakpoint(medium) {
-  .search,
   main,
   .header-wrap {
     padding-left: rem(25);
@@ -21,6 +24,10 @@ main {
   }
   .header-wrap {
     padding-top: rem(25);
+  }
+
+  .card-grid + h2 {
+    margin-top: rem(48);
   }
 }
 
@@ -31,7 +38,6 @@ main {
       padding-top: rem(57);
     }
   }
-  .search,
   main,
   .header-wrap {
     padding-left: rem(36);

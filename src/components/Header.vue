@@ -19,28 +19,36 @@ import BookMarkIcon from "./icons/IconNavBookmark.vue";
       <nav>
         <HeaderItem>
           <template #icon>
-            <HomeIcon />
+            <router-link to="/">
+              <HomeIcon />
+            </router-link>
           </template>
           <template #heading>Home</template>
         </HeaderItem>
 
         <HeaderItem>
           <template #icon>
-            <MovieIcon />
+            <router-link to="/movies">
+              <MovieIcon />
+            </router-link>
           </template>
           <template #heading>Movies</template>
         </HeaderItem>
 
         <HeaderItem>
           <template #icon>
-            <TVIcon />
+            <router-link to="/tv-series">
+              <TVIcon />
+            </router-link>
           </template>
           <template #heading>TV Series</template>
         </HeaderItem>
 
         <HeaderItem>
           <template #icon>
-            <BookMarkIcon />
+            <router-link to="/bookmarked">
+              <BookMarkIcon />
+            </router-link>
           </template>
           <template #heading>Bookmarks</template>
         </HeaderItem>
@@ -71,6 +79,9 @@ nav {
   column-gap: rem(24);
   path {
     transition: fill 150ms ease-in-out;
+  }
+  .router-link-active svg path {
+    fill: var(--white);
   }
   svg {
     cursor: pointer;

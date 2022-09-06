@@ -10,56 +10,23 @@ import IconBookmarkEmpty from "./icons/IconBookmarkEmpty.vue";
 defineProps({
   classModifier: String,
   movie: Object,
-  movieTrending: Boolean,
+  isTrending: Boolean,
 });
+
+//TODO create picture component and fetch data based on trending
 </script>
 
 <template>
-  <div
-    v-if="movie.isTrending && movieTrending"
-    class="card"
-    :class="classModifier"
-  >
-    <picture>
-      <source
-        media="(min-width: 768px)"
-        :srcset="movie.thumbnail.trending.medium"
-      />
+  <div class="card" :class="classModifier">
+    <picture v-if="isTrending">
       <source
         media="(min-width: 1024px)"
         :srcset="movie.thumbnail.trending.large"
       />
       <img :src="movie.thumbnail.trending.small" alt="" />
     </picture>
-    <div class="attributes">
-      <div class="meta">
-        <div class="year">{{ movie.year }}</div>
-        <div class="category">
-          <div class="icon">
-            <MovieIcon />
-          </div>
-          {{ movie.category }}
-        </div>
-        <div class="rating">{{ movie.rating }}</div>
-      </div>
-      <h2>{{ movie.title }}</h2>
-    </div>
 
-    <div class="bookmark bookmark--full" v-if="movie.isBookmarked">
-      <BookMarkIconFull />
-    </div>
-    <div class="bookmark" v-else>
-      <IconBookmarkEmpty />
-    </div>
-    <div class="play"><IconPlay /> Play</div>
-  </div>
-
-  <div
-    v-else-if="!movie.isTrending && !movieTrending"
-    class="card"
-    :class="classModifier"
-  >
-    <picture>
+    <picture v-else>
       <source
         media="(min-width: 768px)"
         :srcset="movie.thumbnail.regular.medium"
@@ -70,6 +37,7 @@ defineProps({
       />
       <img :src="movie.thumbnail.regular.small" alt="" />
     </picture>
+
     <div class="attributes">
       <div class="meta">
         <div class="year">{{ movie.year }}</div>

@@ -1,5 +1,9 @@
 <script setup>
+import { ref, computed } from "vue";
 import SearchIcon from "./icons/IconSearch.vue";
+defineProps({
+  placeHolder: String,
+});
 </script>
 
 <template>
@@ -7,7 +11,7 @@ import SearchIcon from "./icons/IconSearch.vue";
     <button class="btn btn--search">
       <SearchIcon />
     </button>
-    <input type="text" placeholder="Search for movies or TV series" />
+    <input type="text" :placeholder="placeHolder" />
   </div>
 </template>
 

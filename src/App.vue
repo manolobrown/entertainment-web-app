@@ -1,14 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Header from "@/components/Header.vue";
-import Search from "@/components/Search.vue";
 </script>
 
 <template>
   <div class="wrapper">
     <Header />
     <div class="wrapper-main">
-      <Search />
       <RouterView />
     </div>
   </div>
