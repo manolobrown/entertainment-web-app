@@ -49,3 +49,25 @@ main {
     padding-top: rem(36);
   }
 }
+
+.disable-header {
+  .header-wrap {
+    display: none;
+  }
+  .wrapper-main {
+    padding-top: 0;
+    width: 100%;
+    max-width: rem(400);
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  main {
+    padding-left: rem(24) !important;
+    padding-right: rem(24) !important;
+  }
+}
