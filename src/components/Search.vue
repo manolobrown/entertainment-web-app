@@ -3,16 +3,23 @@ import { ref, computed } from "vue";
 import SearchIcon from "./icons/IconSearch.vue";
 defineProps({
   placeHolder: String,
+  modelValue: String,
 });
+defineEmits(["update:modelValue", "searchData"]);
 </script>
 
 <template>
-  <div class="search">
-    <button class="btn btn--search">
+  <form @submit.prevent="$emit('searchData')" class="search">
+    <button type="submit" class="btn btn--search">
       <SearchIcon />
     </button>
-    <input type="text" :placeholder="placeHolder" />
-  </div>
+    <input
+      type="text"
+      :placeholder="placeHolder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
+  </form>
 </template>
 
 <style lang="scss" scoped>
@@ -21,6 +28,7 @@ button,
 input {
   background-color: transparent;
   border: 0;
+  cursor: pointer;
 }
 button {
   padding: rem(8);
@@ -34,7 +42,7 @@ button {
 input {
   display: inline-block;
   width: 100%;
-  cursor: pointer;
+
   caret-color: var(--red);
   transition: all 0.3s ease-in-out;
   &:focus,
