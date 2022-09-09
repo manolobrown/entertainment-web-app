@@ -1,9 +1,19 @@
 <script setup>
-import TheWelcome from "@/components/TheWelcome.vue";
+import { ref } from "vue";
+import Form from "@/components/Form.vue";
+
+const formElements = {
+  heading: "Sign Up",
+  button: "Create an account",
+  message: "Already have an account?",
+  messageUrl: "/login",
+  messageUrlText: "Login",
+  isCreatePassword: true,
+};
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Form v-bind="formElements" />
   </main>
 </template>

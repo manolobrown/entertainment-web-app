@@ -4,6 +4,7 @@ import Movies from "../views/Movies.vue";
 import TvSeries from "../views/TvSeries.vue";
 import BookMarked from "../views/BookMarked.vue";
 import Login from "../views/Login.vue";
+import SignUp from "../views/SignUp.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +34,11 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: Login,
-      meta: { bodyClass: "bg-light" },
+    },
+    {
+      path: "/sign-up",
+      name: "signup",
+      component: SignUp,
     },
   ],
 });
