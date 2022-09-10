@@ -9,8 +9,16 @@ defineProps({
   messageUrl: String,
   messageUrlText: String,
   isCreatePassword: Boolean,
+  email: String,
+  password: String,
+  repeatPassword: String,
 });
-
+defineEmits([
+  "update:email",
+  "update:password",
+  "update:repeatPassword",
+  "submitForm",
+]);
 onBeforeMount(() => {
   document.body.classList.add("disable-header", "login");
 });
@@ -22,18 +30,38 @@ onUnmounted(() => {
 <template>
   <div class="form-wrapper">
     <LogoIcon />
-    <form action="">
+    <form @submit.prevent="$emit('submitForm')">
       <h2>{{ heading }}</h2>
-      <input type="email" placeholder="Email Address" />
-      <input type="password" placeholder="Password" />
-      <input
-        type="password"
-        placeholder="Repeat Password"
-        v-if="isCreatePassword"
-      />
+      <div class="email-wrap">
+        <input
+          type="email"
+          placeholder="Email Address"
+          @input="$emit('update:email', $event.target.value)"
+        />
+      </div>
+      <div class="password-wrap">
+        <input
+          type="password"
+          placeholder="Password"
+          autocomplete="on"
+          @input="$emit('update:password', $event.target.value)"
+        />
+      </div>
+      <div v-if="isCreatePassword" class="confirm-password-wrap">
+        <input
+          type="password"
+          placeholder="Repeat Password"
+          auto-complete="on"
+          @input="$emit('update:repeatPassword', $event.target.value)"
+        />
+      </div>
+
       <button>{{ button }}</button>
       <p>
-        {{ message }} <a :href="messageUrl">{{ messageUrlText }}</a>
+        {{ message }}
+        <a :href="messageUrl"
+          ><span>{{ messageUrlText }}</span></a
+        >
       </p>
     </form>
   </div>
@@ -100,11 +128,28 @@ input {
     border-bottom: 1px solid var(--white);
   }
 }
+.error {
+  position: relative;
+  input {
+    border-color: var(--red);
+  }
+  &:after {
+    content: "Can't be empty";
+    color: var(--red);
+    font-size: rem(13);
+    position: absolute;
+    right: rem(16);
+    bottom: rem(18);
+  }
+}
 a {
   color: var(--red);
 }
 p {
   margin: 0;
   text-align: center;
+}
+p span {
+  margin-left: 5px;
 }
 </style>
