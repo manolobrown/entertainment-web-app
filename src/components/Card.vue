@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import BookMarkIconEmpty from "./icons/IconBookmarkEmpty.vue";
 import BookMarkIconFull from "./icons/IconBookmarkFull.vue";
 import MovieIcon from "./icons/IconCategoryMovie.vue";
@@ -7,11 +7,13 @@ import TVIcon from "./icons/IconCategoryTV.vue";
 import PlayIcon from "./icons/IconPlay.vue";
 import IconPlay from "./icons/IconPlay.vue";
 import IconBookmarkEmpty from "./icons/IconBookmarkEmpty.vue";
-defineProps({
+const props = defineProps({
   classModifier: String,
   movie: Object,
   isTrending: Boolean,
 });
+
+const isActive = ref(false);
 
 //TODO create picture component and fetch data based on trending
 </script>
@@ -52,10 +54,20 @@ defineProps({
       <h2>{{ movie.title }}</h2>
     </div>
 
-    <div class="bookmark bookmark--full" v-if="movie.isBookmarked">
+    <div
+      v-if="movie.isBookmarked"
+      class="bookmark bookmark--full"
+      :class="{ bookmarked: isActive }"
+      @click="isActive = !isActive"
+    >
       <BookMarkIconFull />
     </div>
-    <div class="bookmark" v-else>
+    <div
+      v-else
+      class="bookmark"
+      :class="{ bookmarked: isActive }"
+      @click="isActive = !isActive"
+    >
       <IconBookmarkEmpty />
     </div>
     <div class="play"><IconPlay /> Play</div>
@@ -89,6 +101,12 @@ defineProps({
       svg path {
         stroke: #000 !important;
       }
+    }
+  }
+
+  .bookmarked {
+    svg path {
+      fill: #fff;
     }
   }
   picture {

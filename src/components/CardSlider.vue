@@ -61,11 +61,10 @@ defineProps({
     column-gap: rem(40);
     margin-right: rem(-25);
     margin-block-end: rem(40);
-  }
-
-  .card {
-    flex: 0 0 rem(470);
-    max-width: rem(470);
+    .card {
+      flex: 0 0 rem(470);
+      max-width: rem(470);
+    }
   }
 }
 @include breakpoint(large) {
